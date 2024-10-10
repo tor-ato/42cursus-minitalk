@@ -66,6 +66,7 @@ SRCS		=	$(SRCS_DIR)ft_is/ft_isalnum.c \
 			 	$(SRCS_DIR)ft_str/ft_strrchr.c \
 			 	$(SRCS_DIR)ft_str/ft_strtrim.c \
 			 	$(SRCS_DIR)ft_str/ft_substr.c \
+			 	$(SRCS_DIR)ft_str/ft_strall.c \
 			 	$(SRCS_DIR)ft_to/ft_atoi.c \
 			 	$(SRCS_DIR)ft_to/ft_itoa.c \
 			 	$(SRCS_DIR)ft_to/ft_tolower.c \

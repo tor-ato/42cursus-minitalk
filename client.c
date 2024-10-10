@@ -29,11 +29,10 @@ void	send_message(pid_t pid, const char *message)
 	char			c;
 	int				res;
 
-	while(*message)
+	while (*message)
 	{
 		c = *message++;
 		bit = CHAR_BIT_LEN;
-
 		while (bit--)
 		{
 			if (c & (1 << bit))
@@ -54,7 +53,7 @@ pid_t	parse_pid(const char *pid_str)
 {
 	pid_t	pid;
 
-	if(*pid_str == 0 || !ft_strall(pid_str, ft_isdigit))
+	if (*pid_str == 0 || !ft_strall(pid_str, ft_isdigit))
 		return (PID_ERR_NUM);
 	pid = ft_atoi(pid_str);
 	if (pid <= 0)
@@ -62,11 +61,11 @@ pid_t	parse_pid(const char *pid_str)
 	return (pid);
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	pid_t	server_pid;
 
-	if (argc !=3)
+	if (argc != 3)
 	{
 		ft_putendl_fd(USAGE_MSG, STDIN_FILENO);
 		return (EXIT_FAILURE);
@@ -77,6 +76,6 @@ int main(int argc, char *argv[])
 		ft_putendl_fd(PID_ERR_MSG, STDERR_FILENO);
 		return (EXIT_FAILURE);
 	}
-	send_message(server_pid,argv[2]);
+	send_message(server_pid, argv[2]);
 	return (EXIT_SUCCESS);
 }

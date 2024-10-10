@@ -19,6 +19,7 @@
 #define CHAR_BIT_LEN	8
 #define PID_FORMAT 		"server PID: %d\n"
 #define SEND_ERR		"Error: failed to send signal"
+
 void	handle_request(int signum, siginfo_t *info, void *context)
 {
 	static char		c;

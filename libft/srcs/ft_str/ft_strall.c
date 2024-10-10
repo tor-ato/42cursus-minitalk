@@ -12,9 +12,9 @@
 
 #include "../../includes/libft.h"
 
-int	ft_strall (const char *str, int (*f)(int))
+int	ft_strall(const char *str, int (*f)(int))
 {
-	if (str == NULL || f ==NULL)
+	if (str == NULL || f == NULL)
 		return (0);
 	while (*str)
 	{

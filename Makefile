@@ -24,21 +24,21 @@ RM		:= rm -rf
 
 SERVER_SRC	:= server.c
 CLIENT_SRC	:= client.c
-SERVER_OBJ	:= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
-CLIENT_OBJ	:= $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
+SERVER_OBJ	:= $(OBJ_DIR)/server.o
+CLIENT_OBJ	:= $(OBJ_DIR)/client.o
 
-all: $(SERVER_SRC) $(CLIENT_SRC)
+all: $(SERVER_NAME) $(CLIENT_NAME)
 
-$(SERVER_SRC): $(LIBFT) $(SERVER_OBJ)
+$(SERVER_NAME):$(SERVER_OBJ) $(LIBFT) 
 	$(CC) $(CFLAGS) -o $@ $^
  
-$(CLIENT_SRC): $(LIBFT) $(CLIENT_OBJ)
+$(CLIENT_NAME): $(CLIENT_OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) -o $@ $^
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | makedir
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-makedir:
+$(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(LIBFT):

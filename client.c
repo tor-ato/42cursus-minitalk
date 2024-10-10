@@ -14,6 +14,7 @@
 #include <complex.h>
 #include <signal.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #define PID_ERR_NUM		-1
 #define PID_ERR_MSG		"Error: invaled PID"
@@ -32,6 +33,7 @@ void	send_message(pid_t pid, const char *message)
 	{
 		c = *message++;
 		bit = CHAR_BIT_LEN;
+
 		while (bit--)
 		{
 			if (c & (1 << bit))
@@ -75,5 +77,6 @@ int main(int argc, char *argv[])
 		ft_putendl_fd(PID_ERR_MSG, STDERR_FILENO);
 		return (EXIT_FAILURE);
 	}
+	send_message(server_pid,argv[2]);
 	return (EXIT_SUCCESS);
 }
